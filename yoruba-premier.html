@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YORUBA PREMIER - Elite Mastery Pro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo-section">
+                <div class="logo-icon">Y</div>
+                <div class="logo-text">
+                    <h1 class="logo-title">YORUBA PREMIER</h1>
+                    <p class="logo-subtitle">Elite Mastery Pro</p>
+                </div>
+            </div>
+
+            <!-- Live Immersion Button -->
+            <div class="nav-section">
+                <button class="nav-btn nav-btn-live" id="liveBtn">
+                    <div class="nav-btn-content">
+                        <span class="nav-icon">🌍</span>
+                        <span class="nav-label">Live Immersion</span>
+                    </div>
+                    <div class="live-indicator" id="liveIndicator"></div>
+                    <div class="btn-shimmer"></div>
+                </button>
+            </div>
+
+            <!-- Category Navigation -->
+            <div class="categories-scroll">
+                <p class="section-title">Mastery Modules</p>
+                <div class="categories-list" id="categoriesList"></div>
+            </div>
+
+            <!-- Bottom Actions -->
+            <div class="bottom-actions">
+                <button class="action-btn" id="tutorBtn">
+                    <span class="action-icon">🤖</span>
+                    <span class="action-label">Native AI Tutor</span>
+                </button>
+                <button class="action-btn" id="quizBtn">
+                    <span class="action-icon">🎯</span>
+                    <span class="action-label">Daily Evaluation</span>
+                </button>
+                <button class="action-btn" id="flashcardsBtn">
+                    <span class="action-icon">🎴</span>
+                    <span class="action-label">Flashcards</span>
+                </button>
+                <button class="action-btn" id="statsBtn">
+                    <span class="action-icon">📊</span>
+                    <span class="action-label">My Statistics</span>
+                </button>
+            </div>
+
+            <!-- Progress Section -->
+            <div class="progress-section">
+                <div class="progress-header">
+                    <span class="progress-label">Total Progress</span>
+                    <span class="progress-count" id="progressCount">0 Lessons Mastered</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Lessons View -->
+            <div class="view-container" id="lessonsView">
+                <header class="content-header">
+                    <div class="header-text">
+                        <h2 class="page-title" id="pageTitle">
+                            <span id="categoryTitle">Greetings</span> <span class="title-accent">Mastery</span>
+                        </h2>
+                        <p class="page-subtitle">Curated pathway to native-level fluency.</p>
+                    </div>
+                    <div class="search-container">
+                        <input 
+                            type="text" 
+                            id="searchInput"
+                            placeholder="Search 3,000+ phrases..."
+                            class="search-input"
+                        />
+                        <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                </header>
+
+                <div class="lessons-grid" id="lessonsGrid"></div>
+            </div>
+
+            <!-- Live Immersion View -->
+            <div class="view-container hidden" id="liveView">
+                <div class="live-container">
+                    <div class="live-orb-container">
+                        <div class="live-orb" id="liveOrb">
+                            <span class="live-orb-icon" id="liveOrbIcon">🌍</span>
+                        </div>
+                        <div class="live-pulse" id="livePulse"></div>
+                    </div>
+
+                    <div class="live-text">
+                        <h2 class="live-title">Live Immersion Mode</h2>
+                        <p class="live-description">
+                            Practice real-time conversation with native pronunciation. Speak phrases and hear them spoken back with authentic Yoruba accent.
+                        </p>
+                    </div>
+
+                    <div class="transcript-box" id="transcriptBox">
+                        <p class="transcript-placeholder">Select a lesson and click "Practice Speaking" to begin...</p>
+                    </div>
+
+                    <button class="live-action-btn" id="liveActionBtn">
+                        Start Speaking Practice
+                    </button>
+
+                    <div class="live-features">
+                        <div class="feature-item">
+                            <div class="feature-dot"></div>
+                            <span>Native Accent</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-dot"></div>
+                            <span>Voice Recognition</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-dot"></div>
+                            <span>Instant Feedback</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tutor View -->
+            <div class="view-container hidden" id="tutorView">
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <div class="chat-header-content">
+                            <div class="ai-avatar">AI</div>
+                            <div class="ai-info">
+                                <h3 class="ai-title">Native Pathway Tutor</h3>
+                                <div class="ai-status">
+                                    <div class="status-dot"></div>
+                                    <span class="status-text">Linguistic Intelligence Active</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="messages-container" id="messagesContainer">
+                        <div class="message message-bot">
+                            <div class="message-bubble">
+                                Ẹ n lẹ́! (Hello!) I am your Yoruba guide. How can I help you master the language today?
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-container">
+                        <div class="input-wrapper">
+                            <input
+                                type="text"
+                                id="chatInput"
+                                placeholder="Ask anything about Yoruba grammar, culture, or daily life..."
+                                class="chat-input"
+                            />
+                            <button class="send-btn" id="sendBtn">Ask</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz View -->
+            <div class="view-container hidden" id="quizView">
+                <div class="quiz-container" id="quizContainer"></div>
+            </div>
+
+            <!-- Flashcards View -->
+            <div class="view-container hidden" id="flashcardsView">
+                <div class="flashcards-container">
+                    <div class="flashcard-header">
+                        <h2 class="flashcard-title">Flashcard Practice</h2>
+                        <div class="flashcard-controls">
+                            <button class="control-btn" id="shuffleBtn">🔀 Shuffle</button>
+                            <button class="control-btn" id="autoplayBtn">▶️ Auto-play</button>
+                        </div>
+                    </div>
+                    
+                    <div class="flashcard-progress">
+                        <span id="flashcardCounter">1 / 20</span>
+                    </div>
+
+                    <div class="flashcard-wrapper">
+                        <div class="flashcard" id="flashcard">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-front">
+                                    <div class="flashcard-content">
+                                        <p class="flashcard-text" id="flashcardFront">Ẹ kú àárọ̀</p>
+                                        <button class="flashcard-speak-btn" id="flashcardSpeakBtn">🔊</button>
+                                    </div>
+                                    <p class="flashcard-hint">Tap to reveal</p>
+                                </div>
+                                <div class="flashcard-back">
+                                    <div class="flashcard-content">
+                                        <p class="flashcard-text" id="flashcardBack">Good morning (Polite)</p>
+                                        <p class="flashcard-note" id="flashcardNote">Used for elders. The 'Ẹ' is the plural/polite prefix.</p>
+                                    </div>
+                                    <p class="flashcard-hint">Tap to flip back</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard-navigation">
+                        <button class="nav-flashcard-btn" id="prevFlashcard">← Previous</button>
+                        <button class="nav-flashcard-btn primary" id="nextFlashcard">Next →</button>
+                    </div>
+
+                    <div class="flashcard-actions">
+                        <button class="flashcard-action-btn easy" id="easyBtn">
+                            <span class="action-emoji">😊</span>
+                            <span>Easy</span>
+                        </button>
+                        <button class="flashcard-action-btn medium" id="mediumBtn">
+                            <span class="action-emoji">🤔</span>
+                            <span>Medium</span>
+                        </button>
+                        <button class="flashcard-action-btn hard" id="hardBtn">
+                            <span class="action-emoji">😓</span>
+                            <span>Hard</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics View -->
+            <div class="view-container hidden" id="statsView">
+                <div class="stats-container">
+                    <h2 class="stats-title">Your Learning Statistics</h2>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">📚</div>
+                            <div class="stat-value" id="totalLearned">0</div>
+                            <div class="stat-label">Lessons Mastered</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🔥</div>
+                            <div class="stat-value" id="streakDays">0</div>
+                            <div class="stat-label">Day Streak</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⏱️</div>
+                            <div class="stat-value" id="totalTime">0h</div>
+                            <div class="stat-label">Study Time</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🎯</div>
+                            <div class="stat-value" id="accuracy">0%</div>
+                            <div class="stat-label">Quiz Accuracy</div>
+                        </div>
+                    </div>
+
+                    <div class="achievements-section">
+                        <h3 class="achievements-title">Achievements</h3>
+                        <div class="achievements-grid" id="achievementsGrid"></div>
+                    </div>
+
+                    <div class="category-breakdown">
+                        <h3 class="breakdown-title">Progress by Category</h3>
+                        <div class="breakdown-list" id="categoryBreakdown"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Audio element for pronunciation -->
+    <audio id="pronunciationAudio" style="display: none;"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
