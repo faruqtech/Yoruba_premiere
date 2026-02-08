@@ -3,7 +3,52 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* 1. The Global Reset: Prevents layout breaking on small screens */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
+body {
+    width: 100%;
+    min-h-screen;
+    overflow-x: hidden; /* Prevents the "wobble" on mobile */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 2. The Auto-Responsive Grid: The 'Magic' Line */
+/* This automatically fits as many cards as possible based on screen width (min 300px) */
+.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+/* 3. The Responsive Image/Media Rule */
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 4. Mobile-Specific Tweaks (Media Queries) */
+@media (max-width: 768px) {
+    /* Stack sidebar on top of content or hide it */
+    .container {
+        flex-direction: column;
+    }
+    
+    /* Make text slightly smaller for small screens */
+    h1 { font-size: 1.8rem; }
+    
+    /* Ensure buttons are large enough for thumbs */
+    button {
+        min-height: 44px;
+        padding: 12px;
+    }
+}
 :root {
     --slate-950: #020617;
     --slate-900: #0f172a;
